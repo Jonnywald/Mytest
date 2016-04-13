@@ -29,8 +29,9 @@ int main()
         else    /* procura posicao correta para incluir */
         {
             ant = inicio;
+            aux2 = ant->prox;
             if (ant->prox != NULL){ /* existe mais de um item na lista */
-                    aux2 = ant->prox;
+
                 while ( aux2->prox != NULL )
                 {
                     if (aux2->valor < aux->valor){ /* caso o item seja menor que o a inserir*/
@@ -55,8 +56,8 @@ int main()
                         ant = ant->prox; /* anda um item para frente*/
                     }
                     else{ /* caso o item seja maior que o a inserir*/
-                        aux->prox = ant;
-                        inicio = aux;
+                        aux->prox = aux2;
+                        ant->prox = aux;
                     }
                 }
             }
