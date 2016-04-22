@@ -18,7 +18,7 @@ struct regLista *lista()
     inicio = NULL;
     while(1)
     {
-        printf("Informe o numero e o sexo(peso,m/f): ");
+        printf("Informe o peso e o sexo(peso,m/f): ");
         fflush(stdin);
         scanf("%d,%c", &numero,&sex);
         if( numero < 0 )
@@ -116,14 +116,22 @@ struct regLista *unir(){
                         }
                         else{/* mais especificamente nesta*/
                             if(lista1->valor>=lista2->valor){
+                                printf("Passei por aqui\n");
                                 ultimo->prox=lista2;
+                                printf("Errou\n");
                                 ultimo=lista2;
+                                printf("Errou\n");
                                 lista2=lista2->prox;
+                                printf("Errou\n");
                             }
                             else{
+                                printf("Ou por aqui\n");
                                 ultimo->prox=lista1;
+                                printf("Errou\n");
                                 ultimo=lista1;
+                                printf("Errou\n");
                                 lista1=lista1->prox;
+                                printf("Errou\n");
                             }
                         }
                     }
@@ -135,7 +143,7 @@ struct regLista *unir(){
 int main(){
     struct regLista *fim;
     fim = unir();
-    printf("\n\n\nConteudo da lista:\n");
+    printf("\n\n\nConteudo da lista final:\n");
     while ( fim != NULL )
     {
         printf("%d - %c\n", fim->valor,fim->sexo);
