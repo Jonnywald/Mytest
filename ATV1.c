@@ -80,7 +80,8 @@ struct regLista *lista()
 }
 struct regLista *unir(){
     struct regLista *lista1, *lista2,*listafinal,*ultimo;
-    ultimo = listafinal;
+    ultimo = (struct regLista *) malloc( sizeof(struct regLista) );
+    listafinal = ultimo;
     lista1=lista();// inicializando as listas
     lista2=lista();
     if (lista1 == NULL){
@@ -103,7 +104,7 @@ struct regLista *unir(){
                     listafinal=lista1;
                 }
             }
-            else{/* Erro nesta parte*/
+            else{
                 for(;;){
                     if (lista1==NULL){
                         ultimo->prox=lista2;
@@ -114,24 +115,16 @@ struct regLista *unir(){
                             ultimo->prox=lista1;
                             return listafinal;
                         }
-                        else{/* mais especificamente nesta*/
+                        else{
                             if(lista1->valor>=lista2->valor){
-                                printf("Passei por aqui\n");
                                 ultimo->prox=lista2;
-                                printf("Errou\n");
                                 ultimo=lista2;
-                                printf("Errou\n");
                                 lista2=lista2->prox;
-                                printf("Errou\n");
                             }
                             else{
-                                printf("Ou por aqui\n");
                                 ultimo->prox=lista1;
-                                printf("Errou\n");
                                 ultimo=lista1;
-                                printf("Errou\n");
                                 lista1=lista1->prox;
-                                printf("Errou\n");
                             }
                         }
                     }
