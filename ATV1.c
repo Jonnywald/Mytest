@@ -81,7 +81,7 @@ struct regLista *lista()
 struct regLista *unir(){
     struct regLista *lista1, *lista2,*listafinal,*ultimo;
     ultimo = (struct regLista *) malloc( sizeof(struct regLista) );
-    listafinal = ultimo;
+    //listafinal = ultimo;
     lista1=lista();// inicializando as listas
     lista2=lista();
     if (lista1 == NULL){
