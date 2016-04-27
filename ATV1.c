@@ -84,39 +84,39 @@ struct regLista *unir(){
     //listafinal = ultimo;
     lista1=lista();// inicializando as listas
     lista2=lista();
-    if (lista1 == NULL){
+    if (lista1 == NULL){//caso a lista 1 seja vazia
         listafinal=lista2;
         return listafinal;
     }
     else{
-        if (lista2==NULL){
+        if (lista2==NULL){// caso a lista 1 e a 2 sejam vazias
             listafinal=lista1;
             return listafinal;
         }
         else{
-            if (lista1->prox == NULL && lista2->prox == NULL){
-                if (lista1->valor>=lista2->valor){
+            if (lista1->prox == NULL && lista2->prox == NULL){ // caso as listas sejam unitarias
+                if (lista1->valor>=lista2->valor){// 1 > 2
                     lista2->prox=lista1;
                     listafinal=lista2;
                 }
-                else{
+                else{// 2 > 1
                     lista1->prox=lista2;
                     listafinal=lista1;
                 }
             }
-            else{
+            else{// Listas de mais de uma unidade
                 for(;;){
-                    if (lista1==NULL){
+                    if (lista1==NULL){ // emendar a lista 2 caso a 1 acabe
                         ultimo->prox=lista2;
                         return listafinal;
                     }
                     else{
-                        if (lista2==NULL){
+                        if (lista2==NULL){// emendar a lista 1 caso a 2 acabe
                             ultimo->prox=lista1;
                             return listafinal;
                         }
                         else{
-                            if(lista1->valor>=lista2->valor){
+                            if(lista1->valor>=lista2->valor){ // checar qual é maior, copiar e destruir
                                 ultimo->prox=lista2;
                                 ultimo=lista2;
                                 lista2=lista2->prox;
@@ -136,7 +136,7 @@ struct regLista *unir(){
 int main(){
     struct regLista *fim;
     fim = unir();
-    printf("\n\n\nConteudo da lista final:\n");
+    printf("\n\n\nConteudo da lista final:\n"); // imprimir a lista
     while ( fim != NULL )
     {
         printf("%d - %c\n", fim->valor,fim->sexo);
